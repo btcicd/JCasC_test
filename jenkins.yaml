@@ -1,0 +1,8 @@
+jenkins: 
+  systemMessage: " demo: configured automatically with JCasC plugin\n\n"
+tool: 
+  git: 
+    installations: 
+      - 
+        home: git
+        name: Default
