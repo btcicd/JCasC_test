@@ -1,2 +1,211 @@
-jenkins: 
-  systemMessage: " demo: configured automatically with JCasC plugin\n\n"
+jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  numExecutors: 0
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm: "operationsCenter"
+  slaveAgentPort: 50002
+  updateCenter:
+    sites:
+    - id: "cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+    - id: "core-mm-offline"
+      url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  globalConfigurationImpl:
+    enabled: false
+  remotingCLI:
+    enabled: false
+  sSHD:
+    port: -1
+unclassified:
+  artifactManager:
+    artifactManagerFactories:
+    - "jSync"
+  badgePlugin:
+    disableFormatHTML: false
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildMonitorView:
+    permissionToCollectAnonymousUsageStatistics: true
+  buildStepOperation:
+    enabled: false
+  claimConfig:
+    blockAutoRefreshWhileClaiming: false
+    propagateToFollowingBuildsByDefault: false
+    sendEmails: false
+    sortUsersByFullName: false
+    stickyByDefault: true
+  contentFilters:
+    enabled: false
+  cxScanBuilder:
+    enableCertificateValidation: false
+    forcingVulnerabilityThresholdEnabled: false
+    hideResults: false
+    jobGlobalStatusOnThresholdViolation: FAILURE
+    lockVulnerabilitySettings: true
+    prohibitProjectCreation: false
+    scanTimeOutEnabled: false
+  devOpticsConfiguration:
+    completionStrategy: AUTOMATIC
+  diskUsageProjectActionFactory:
+    checkWorkspaceOnSlave: false
+    historyLength: 183
+    showGraph: false
+    timeoutWorkspace: 5
+  experimentalPlugins:
+    enabled: false
+  extendedEmailPublisher:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\r\n\r\nCheck\
+      \ console output at $BUILD_URL to view the results."
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: 0
+    precedenceBulk: false
+    useSsl: false
+    watchingEnabled: false
+  ghprbTrigger:
+    extensions:
+    - ghprbSimpleStatus:
+        addTestResults: false
+        showMatrixStatus: false
+  gitHubConfiguration:
+    endpoints:
+    - apiUri: "https://git.soma.salesforce.com/api/v3"
+      name: "Git.soma API end point"
+  gitHubPluginConfig:
+    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt_test/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    globalConfigEmail: "it-cd@salesforce.com"
+    globalConfigName: "githubtools_svc"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "cdsharedlibrary"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              credentialsId: "githubtools_ssh"
+              id: "ee89dd84-0c4d-4302-9d03-f68c19f86c64"
+              remote: "git@git.soma.salesforce.com:IT/cd-jenkins-pac-sharedlibrary.git"
+  globalSettings:
+    failOnCorrupt: false
+    noAuthors: false
+    quietMode: false
+  hAGlobalConfiguration:
+    bindPort: 0
+    diagnosticPort: 0
+    portRange: 0
+  hipChatNotifier:
+    cardProvider: "jenkins.plugins.hipchat.impl.DefaultCardProvider"
+    configVersion: "2.2.1"
+    sendAs: "Jenkins"
+    server: "api.hipchat.com"
+    v2Enabled: false
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://dev-jenkins.internal.salesforce.com/bt_test/"
+  mailer:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    charset: "UTF-8"
+    useSsl: false
+  mavenModuleSet:
+    localRepository: "default"
+  naginatorPublisher:
+    regexpTimeoutMs: 30000
+  operationsCenterRootAction:
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB2KSQ4CIRAA/9Jnm8UMQefoG+YDTQMuIWJomIvx76K3qkq94dro2WEFb6w7h0Bo\r\
+      \nbM64kDkhOc/IizuSoey8T3CAe5yvxcs2ebQy5db7a9WaH5UVlzpiSElQJKZdyf5rQ3pqqlSm8t80\r\
+      \nfL7ebBzseAAAAA==\r\n----- END CONNECTION DETAILS -----\n"
+  pollSCM:
+    pollingThreadCount: 10
+  schedulerPreference:
+    preferEvenload: false
+  timestamperConfig:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+  unleashMavenBuildWrapper:
+    preselectAllowLocalReleaseArtifacts: true
+    preselectCommitBeforeTagging: false
+    scmMessagePrefix: "[unleash-maven-plugin]"
+    tagNamePattern: "@{project.version}"
+    useLogTimestamps: true
+  upstream:
+    globalUpstreamFilterStrategy: UseOldest
+  validatedMergeGlobalConfiguration:
+    preferHttp: false
+    pushFromMaster: false
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - home: "/usr/lib/jvm/java-8-openjdk-amd64"
+      name: "java-8-openjdk"
+    - home: "/opt/JDK8"
+      name: "JDK8_latest"
+  maven:
+    installations:
+    - name: "Maven3.6.1"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.6.1"
+    - name: "Maven3.3.9"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.3.9"
+  pipelineMaven:
+    triggerDownstreamUponResultAborted: false
+    triggerDownstreamUponResultFailure: false
+    triggerDownstreamUponResultNotBuilt: false
+    triggerDownstreamUponResultSuccess: true
+    triggerDownstreamUponResultUnstable: false
