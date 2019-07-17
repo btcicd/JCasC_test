@@ -128,9 +128,3 @@ tool:
     installations:
     - home: "/usr/bin/node"
       name: "NodeJS-10.12.0"
-  pipelineMaven:
-    triggerDownstreamUponResultAborted: false
-    triggerDownstreamUponResultFailure: false
-    triggerDownstreamUponResultNotBuilt: false
-    triggerDownstreamUponResultSuccess: true
-    triggerDownstreamUponResultUnstable: false
