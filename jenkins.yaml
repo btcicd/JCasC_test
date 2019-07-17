@@ -181,9 +181,6 @@ unclassified:
     useLogTimestamps: true
   upstream:
     globalUpstreamFilterStrategy: UseOldest
-  validatedMergeGlobalConfiguration:
-    preferHttp: false
-    pushFromMaster: false
 tool:
   ant:
     installations:
