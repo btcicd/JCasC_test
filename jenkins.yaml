@@ -33,9 +33,6 @@ jenkins:
   - securityTokens:
       acceptTasksWithoutOwningItem: false
   numExecutors: 0
-  primaryView:
-    nested:
-      name: "Jenkins_landing"
   projectNamingStrategy:
     pattern:
       forceExistingJobs: true
