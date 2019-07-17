@@ -66,19 +66,6 @@ jenkins:
       url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
     - id: "core-mm-offline"
       url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  downloadSettings:
-    useBrowser: false
-  globalConfigurationImpl:
-    enabled: false
-  remotingCLI:
-    enabled: false
-  sSHD:
-    port: -1
 unclassified:
   artifactManager:
     artifactManagerFactories:
