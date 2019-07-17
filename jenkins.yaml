@@ -1,4 +1,107 @@
 jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  globalNodeProperties:
+  - owner:
+      onFirstLaunchFailure: false
+      onLaunchFailure: false
+      onOffline: false
+      onOnline: false
+      onTemporaryOfflineApplied: true
+      onTemporaryOfflineRemoved: true
+      owners: "it-cd@salesforce.com"
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
+  mode: EXCLUSIVE
+  myViewsTabBar: "standard"
+  nodeProperties:
+  - envVars:
+      env:
+      - key: "BACKUP_HOME"
+        value: "/opt/jenkins_backups"
+  - securityTokens:
+      acceptTasksWithoutOwningItem: false
+  numExecutors: 0
+  primaryView:
+    nested:
+      name: "Jenkins_landing"
+  projectNamingStrategy:
+    pattern:
+      forceExistingJobs: true
+      namePattern: "^[A-Za-z0-9_-]*$"
+  quietPeriod: 15
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm: "operationsCenter"
+  slaveAgentPort: 50002
+  systemMessage: "\t\t<h2><font color=\"red\"><a target=\"_blank\" href=\"\"></a></font></h2>\r\
+    \n\t\t<h1>Continuous Delivery At Your Fingertips</h1>\r\n\t\t<font size=\"2\"\
+    ><b>Managed by the <a target=\"_blank\" href=\"https://sites.google.com/a/salesforce.com/continuousdelivery/\"\
+    >Continuous Delivery Team</a>. &nbsp;\r\n\t\tView the <a href=https://jenkins.internal.salesforce.com/haproxyStats>Jenkins\
+    \ Network Stats</a>.</b></font>\r\n\t\t<h4><font color=\"red\">For requesting\
+    \ CD champion Access to a user, log a ticket<a target=\"_blank\" href=\"https://beta.concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Adding-a-User-to-an-Existing-Active-Directory-Security-Group\"\
+    >&nbsp;Here</a>.(Refer this<a target=\"_blank\" href=\"https://supportforce.my.salesforce.com/5000g000022KVZd?srPos=0&srKp=500\"\
+    >&nbsp;case</a>)</font>.<br>\r\n\t\t<font color=\"red\">For requesting Checkmarx\
+    \ Access, log a ticket<a target=\"_blank\" href=\"https://concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Checkmarx-Access-Requests-IT-ONLY\"\
+    >&nbsp;Here</a> </font>.<br>\r\n\t\t<font color=\"red\">For requesting Sauce Labs\
+    \ Access, log a ticket<a target=\"_blank\" href=\"https://concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Sauce-Labs-Access-Request-IT-Only\"\
+    >&nbsp;Here</a> </font>.<br>\r\n\t\t<font color=\"red\">For configuration related\
+    \ or any other jenkins related issues, create a new work item from the template\
+    \ <a target=\"_blank\" href=\"https://gus.my.salesforce.com/apex/ADM_WorkDeepClone?retURL=%2Fapex%2Fadm_bugdetail%3Fid%3Da07B0000002wVj6&id=a07B0000002wVj6IAE\"\
+    >Here</a> </font>.<br>\r\n\t\t<font color=\"red\">For Level 2 support, log a ticket<a\
+    \ target=\"_blank\" href=\"https://beta.concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Request-for-Level-2-support-for-the-following-CICD-Tools-in-IT\"\
+    >Here</a> </font>.</h4>\r\n        <h4><font color=\"red\">Workspace of all jobs\
+    \ will be wiped at 11.45PM PDT every sunday. Please ensure to not run any jobs\
+    \ around this window. If your build fails due to missing files, ensure to enable\
+    \ full wipe of workspace under SCM advanced section</font></h4>"
+  updateCenter:
+    sites:
+    - id: "cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+    - id: "core-mm-offline"
+      url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  globalConfigurationImpl:
+    enabled: false
+  remotingCLI:
+    enabled: false
+  sSHD:
+    port: -1
+unclassified:
+  artifactManager:
+    artifactManagerFactories:
+    - "jSync"
+  badgePlugin:
+    disableFormatHTML: false
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildMonitorView:
+    permissionToCollectAnonymousUsageStatistics: true
+  buildStepOperation:
+    enabled: false
   claimConfig:
     blockAutoRefreshWhileClaiming: false
     propagateToFollowingBuildsByDefault: false
@@ -8,13 +111,30 @@ jenkins:
   contentFilters:
     enabled: false
   cxScanBuilder:
+    credentialsId: "itcd-checkmarx-sa"
     enableCertificateValidation: false
+    filterPattern: |-
+      !**/_cvs/**/*, !**/.svn/**/*,   !**/.hg/**/*,   !**/.git/**/*,  !**/.bzr/**/*, !**/bin/**/*,
+      !**/obj/**/*,  !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr,     !**/*.iws,
+      !**/*.bak,     !**/*.tmp,       !**/*.aac,      !**/*.aif,      !**/*.iff,     !**/*.m3u, !**/*.mid, !**/*.mp3,
+      !**/*.mpa,     !**/*.ra,        !**/*.wav,      !**/*.wma,      !**/*.3g2,     !**/*.3gp, !**/*.asf, !**/*.asx,
+      !**/*.avi,     !**/*.flv,       !**/*.mov,      !**/*.mp4,      !**/*.mpg,     !**/*.rm,  !**/*.swf, !**/*.vob,
+      !**/*.wmv,     !**/*.bmp,       !**/*.gif,      !**/*.jpg,      !**/*.png,     !**/*.psd, !**/*.tif, !**/*.swf,
+      !**/*.jar,     !**/*.zip,       !**/*.rar,      !**/*.exe,      !**/*.dll,     !**/*.pdb, !**/*.7z,  !**/*.gz,
+      !**/*.tar.gz,  !**/*.tar,       !**/*.gz,       !**/*.ahtm,     !**/*.ahtml,   !**/*.fhtml, !**/*.hdm,
+      !**/*.hdml,    !**/*.hsql,      !**/*.ht,       !**/*.hta,      !**/*.htc,     !**/*.htd, !**/*.war, !**/*.ear,
+      !**/*.htmls,   !**/*.ihtml,     !**/*.mht,      !**/*.mhtm,     !**/*.mhtml,   !**/*.ssi, !**/*.stm,
+      !**/*.stml,    !**/*.ttml,      !**/*.txn,      !**/*.xhtm,     !**/*.xhtml,   !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*
     forcingVulnerabilityThresholdEnabled: false
     hideResults: false
+    jobGlobalStatusOnError: FAILURE
     jobGlobalStatusOnThresholdViolation: FAILURE
     lockVulnerabilitySettings: true
+    password: "{AQAAABAAAAAQpsIRoIMxX/lCJ4if1nrNMPE/PH/AdDm71shqinrNXT0=}"
     prohibitProjectCreation: false
     scanTimeOutEnabled: false
+    scanTimeoutDuration: 1
+    serverUrl: "https://scanner.internal.salesforce.com"
   devOpticsConfiguration:
     completionStrategy: AUTOMATIC
   diskUsageProjectActionFactory:
@@ -48,7 +168,7 @@ jenkins:
     - apiUri: "https://git.soma.salesforce.com/api/v3"
       name: "Git.soma API end point"
   gitHubPluginConfig:
-    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt_test/github-webhook/"
+    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt-test/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false
     globalConfigEmail: "it-cd@salesforce.com"
@@ -64,17 +184,102 @@ jenkins:
               credentialsId: "githubtools_ssh"
               id: "ee89dd84-0c4d-4302-9d03-f68c19f86c64"
               remote: "git@git.soma.salesforce.com:IT/cd-jenkins-pac-sharedlibrary.git"
+  globalSettings:
+    failOnCorrupt: false
+    noAuthors: false
+    quietMode: false
+  hAGlobalConfiguration:
+    bindPort: 0
+    diagnosticPort: 0
+    portRange: 0
+  hipChatNotifier:
+    cardProvider: "jenkins.plugins.hipchat.impl.DefaultCardProvider"
+    configVersion: "2.2.1"
+    sendAs: "Jenkins"
+    server: "api.hipchat.com"
+    v2Enabled: false
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://dev-jenkins.internal.salesforce.com/bt-test/"
+  logParser:
+    legacyFormatting: false
+  loginTheme:
+    head: "<center><font size=\"6\" <b>CloudBees Jenkins on AWS EKS</b></font></center>"
+    header: "<center><b>System is under ongoing Development. Expect regular interruptions</b></center>"
+    useDefaultTheme: true
+  mailer:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    charset: "UTF-8"
+    useSsl: false
+  mavenModuleSet:
+    localRepository: "default"
+  naginatorPublisher:
+    regexpTimeoutMs: 30000
+  operationsCenterRootAction:
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAB2KSQ4CIRAA/9Jnm8UMQefoG+YDTQMuIWJomIvx76K3qkq94dro2WEFb6w7h0Bo\r\
+      \nbM64kDkhOc/IizuSoey8T3CAe5yvxcs2ebQy5db7a9WaH5UVlzpiSElQJKZdyf5rQ3pqqlSm8t80\r\
+      \nfL7ebBzseAAAAA==\r\n----- END CONNECTION DETAILS -----\n"
+  pollSCM:
+    pollingThreadCount: 10
+  schedulerPreference:
+    preferEvenload: false
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "https://dev-jenkins.internal.salesforce.com/bt-test/userContent/layout/sytle.css"
+  timestamperConfig:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+  unleashMavenBuildWrapper:
+    preselectAllowLocalReleaseArtifacts: true
+    preselectCommitBeforeTagging: false
+    scmMessagePrefix: "[unleash-maven-plugin]"
+    tagNamePattern: "@{project.version}"
+    useLogTimestamps: true
+  upstream:
+    globalUpstreamFilterStrategy: UseOldest
+  validatedMergeGlobalConfiguration:
+    preferHttp: false
+    pushFromMaster: false
 tool:
+  ant:
+    installations:
+    - home: "/opt/ant"
+      name: "SFDC_Ant_v45.0_1.10.5"
   git:
     installations:
     - home: "git"
       name: "Default"
   jdk:
     installations:
+    - name: "Java SE JDK_8u_latest"
+      properties:
+      - installSource:
+          installers:
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-8u172-oth-JPR"
+    - name: "Java SE DK_8u_latest_with_JCE"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "/home/jenkins/.jenkins/tools/hudson.model.JDK/Java_SE_DK_8u172_with_JCE/"
+              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/8u172JCE/jdk-8u172JCE.zip"
+    - name: "openjdk-11_0_2"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "jdk-11.0.2"
+              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/11.0.2/jdk-11.0.2-x64_bin.tar.gz"
     - home: "/usr/lib/jvm/java-8-openjdk-amd64"
       name: "java-8-openjdk"
     - home: "/opt/JDK8"
       name: "JDK8_latest"
+    - home: "/opt/JDK8"
+      name: "Java SE JDK_8u_161"
   maven:
     installations:
     - name: "Maven3.6.1"
@@ -89,6 +294,16 @@ tool:
           installers:
           - maven:
               id: "3.3.9"
+    - name: "Apache_Maven_3.5.3"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.5.3"
+  nodejs:
+    installations:
+    - home: "/usr/bin/node"
+      name: "NodeJS-10.12.0"
   pipelineMaven:
     triggerDownstreamUponResultAborted: false
     triggerDownstreamUponResultFailure: false
