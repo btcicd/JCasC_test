@@ -124,7 +124,3 @@ tool:
           installers:
           - maven:
               id: "3.5.3"
-  nodejs:
-    installations:
-    - home: "/usr/bin/node"
-      name: "NodeJS-10.12.0"
