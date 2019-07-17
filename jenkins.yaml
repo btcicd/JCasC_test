@@ -79,8 +79,6 @@ unclassified:
         manageHooks: false
         repositoriesCacheDuration: 0
         teamCacheDuration: 0
-  buildMonitorView:
-    permissionToCollectAnonymousUsageStatistics: true
   buildStepOperation:
     enabled: false
   claimConfig:
