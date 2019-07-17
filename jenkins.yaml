@@ -70,8 +70,6 @@ unclassified:
   artifactManager:
     artifactManagerFactories:
     - "jSync"
-  badgePlugin:
-    disableFormatHTML: false
   bitbucketEndpointConfiguration:
     endpoints:
     - bitbucketCloudEndpoint:
@@ -79,8 +77,6 @@ unclassified:
         manageHooks: false
         repositoriesCacheDuration: 0
         teamCacheDuration: 0
-  buildStepOperation:
-    enabled: false
   claimConfig:
     blockAutoRefreshWhileClaiming: false
     propagateToFollowingBuildsByDefault: false
@@ -138,10 +134,6 @@ unclassified:
               credentialsId: "githubtools_ssh"
               id: "ee89dd84-0c4d-4302-9d03-f68c19f86c64"
               remote: "git@git.soma.salesforce.com:IT/cd-jenkins-pac-sharedlibrary.git"
-  globalSettings:
-    failOnCorrupt: false
-    noAuthors: false
-    quietMode: false
   hAGlobalConfiguration:
     bindPort: 0
     diagnosticPort: 0
@@ -177,10 +169,6 @@ unclassified:
     pollingThreadCount: 10
   schedulerPreference:
     preferEvenload: false
-  simple-theme-plugin:
-    elements:
-    - cssUrl:
-        url: "https://dev-jenkins.internal.salesforce.com/bt-test/userContent/layout/sytle.css"
   timestamperConfig:
     allPipelines: false
     elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
