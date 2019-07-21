@@ -41,12 +41,15 @@ jenkins:
   securityRealm: "operationsCenter"
   slaveAgentPort: 50002
   systemMessage: |
+                  <!DOCTYPE html>
+                   <html>
+                    <body>
 
-        <blockquote style="font: italic 12pt Times">
-        <p>"Three is always greater than two,
-           even for large values of two"</p>
-        <p>--Author Unknown</p>
-        </blockquote>
+                      <p>This is a paragraph.</p>
+                      <p>This is another paragraph.</p>
+
+                     </body>
+                    </html>
   updateCenter:
     sites:
     - id: "cap-core-mm"
