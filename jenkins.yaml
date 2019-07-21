@@ -40,16 +40,15 @@ jenkins:
   scmCheckoutRetryCount: 0
   securityRealm: "operationsCenter"
   slaveAgentPort: 50002
-  systemMessage: |
-                  <!DOCTYPE html>
-                   <html>
-                    <body>
-
-                      <p>This is a paragraph.</p>
-                      <p>This is another paragraph.</p>
-
-                     </body>
-                    </html>
+  systemMessage:
+                    html:
+                      head:
+                        title: Hello World
+                      body:
+                        p:
+                          - I would like to introduce this html page.
+                          - It was converted from YAML.
+                          - {b: And this paragraph is bold}
   updateCenter:
     sites:
     - id: "cap-core-mm"
