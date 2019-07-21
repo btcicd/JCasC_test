@@ -40,26 +40,13 @@ jenkins:
   scmCheckoutRetryCount: 0
   securityRealm: "operationsCenter"
   slaveAgentPort: 50002
-  systemMessage: "\t\t<h2><font color=\"red\"><a target=\"_blank\" href=\"\"></a></font></h2>\r\
-    \n\t\t<h1>Continuous Delivery At Your Fingertips</h1>\r\n\t\t<font size=\"2\"\
-    ><b>Managed by the <a target=\"_blank\" href=\"https://sites.google.com/a/salesforce.com/continuousdelivery/\"\
-    >Continuous Delivery Team</a>. &nbsp;\r\n\t\tView the <a href=https://jenkins.internal.salesforce.com/haproxyStats>Jenkins\
-    \ Network Stats</a>.</b></font>\r\n\t\t<h4><font color=\"red\">For requesting\
-    \ CD champion Access to a user, log a ticket<a target=\"_blank\" href=\"https://beta.concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Adding-a-User-to-an-Existing-Active-Directory-Security-Group\"\
-    >&nbsp;Here</a>.(Refer this<a target=\"_blank\" href=\"https://supportforce.my.salesforce.com/5000g000022KVZd?srPos=0&srKp=500\"\
-    >&nbsp;case</a>)</font>.<br>\r\n\t\t<font color=\"red\">For requesting Checkmarx\
-    \ Access, log a ticket<a target=\"_blank\" href=\"https://concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Checkmarx-Access-Requests-IT-ONLY\"\
-    >&nbsp;Here</a> </font>.<br>\r\n\t\t<font color=\"red\">For requesting Sauce Labs\
-    \ Access, log a ticket<a target=\"_blank\" href=\"https://concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Sauce-Labs-Access-Request-IT-Only\"\
-    >&nbsp;Here</a> </font>.<br>\r\n\t\t<font color=\"red\">For configuration related\
-    \ or any other jenkins related issues, create a new work item from the template\
-    \ <a target=\"_blank\" href=\"https://gus.my.salesforce.com/apex/ADM_WorkDeepClone?retURL=%2Fapex%2Fadm_bugdetail%3Fid%3Da07B0000002wVj6&id=a07B0000002wVj6IAE\"\
-    >Here</a> </font>.<br>\r\n\t\t<font color=\"red\">For Level 2 support, log a ticket<a\
-    \ target=\"_blank\" href=\"https://beta.concierge.it.salesforce.com/articles/en_US/Supportforce_Article/Request-for-Level-2-support-for-the-following-CICD-Tools-in-IT\"\
-    >Here</a> </font>.</h4>\r\n        <h4><font color=\"red\">Workspace of all jobs\
-    \ will be wiped at 11.45PM PDT every sunday. Please ensure to not run any jobs\
-    \ around this window. If your build fails due to missing files, ensure to enable\
-    \ full wipe of workspace under SCM advanced section</font></h4>"
+  systemMessage: |
+
+        <blockquote style="font: italic 12pt Times">
+        <p>"Three is always greater than two,
+           even for large values of two"</p>
+        <p>--Author Unknown</p>
+        </blockquote>
   updateCenter:
     sites:
     - id: "cap-core-mm"
