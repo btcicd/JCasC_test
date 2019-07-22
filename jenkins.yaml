@@ -230,30 +230,113 @@ unclassified:
 tool:
   ant:
     installations:
-    - home: "/opt/ant"
-      name: "SFDC_Ant_v45.0_1.10.5"
+    - name: "Apache_Ant_1.9.7"
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.9.7"
+    - name: "SFDC_Ant_1.7.0"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              url: "http://nexusprod.internal.salesforce.com:8080/nexus/content/repositories/cd_infra/com/sforce/cd/sfdc_ant/1.7.0/sfdc_ant-1.7.0.tgz"
+    - name: "SFDC_Ant_1.8.3"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              url: "http://nexusprod.internal.salesforce.com:8080/nexus/content/repositories/cd_infra/com/sforce/cd/sfdc_ant/1.8.3/sfdc_ant-1.8.3.tgz"
+    - name: "Apache_Ant_1.7.0"
+      properties:
+      - installSource:
+          installers:
+          - antFromApache:
+              id: "1.9.7"
+    - name: "SFDC_v41.0_Ant_1.8.3"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              url: "http://nexusprod.internal.salesforce.com:8080/nexus/service/local/repositories/cd_infra/content/com/sforce/cd/sfdc_ant_410/1.8.3/sfdc_ant_410-1.8.3.gz"
+    - name: "SFDC_v41.0_Ant_1.7.0"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              url: "http://nexusprod.internal.salesforce.com:8080/nexus/content/repositories/cd_infra/com/sforce/cd/sfdc_ant_410/1.7.0/sfdc_ant_410-1.7.0.gz"
+    - name: "SFDC_v41.0_Ant_1.9.10"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              url: "http://nexusprod.internal.salesforce.com:8080/nexus/service/local/repositories/cd_infra/content/com/sforce/cd/sfdc_ant_410/1.9.10/sfdc_ant_410-1.9.10.gz"
+  dockerTool:
+    installations:
+    - name: "docker"
+      properties:
+      - installSource:
+          installers:
+          - docker:
+              version: "latest"
   git:
     installations:
     - home: "git"
       name: "Default"
+    - home: "git"
+      name: "gitWin64"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              label: "windows7"
+              subdir: "Git/cmd/git.cmd"
+              url: "http://nexusprod.ops.sfdc.net:8080/git/Git.zip"
+  gradle:
+    installations:
+    - name: "gradle-2.14"
+      properties:
+      - installSource:
+          installers:
+          - gradleInstaller:
+              id: "3.3-rc-1"
+    - name: "gradle-2.7"
+      properties:
+      - installSource:
+          installers:
+          - gradleInstaller:
+              id: "3.3-rc-1"
+  groovyInstallation:
+    installations:
+    - name: "Groovy_2.4.7"
+      properties:
+      - installSource:
+          installers:
+          - groovyInstaller:
+              id: "2.4.7"
+    - name: "Groovy_2.2.1"
+      properties:
+      - installSource:
+          installers:
+          - groovyInstaller:
+              id: "2.4.7"
   jdk:
     installations:
-    - home: "/opt/jdk-11"
-      name: "OpenJDK-latest"
-    - name: "Java SE JDK_8u_latest"
+    - name: "JDK8u161"
       properties:
       - installSource:
           installers:
           - jdkInstaller:
               acceptLicense: true
-              id: "jdk-8u172-oth-JPR"
-    - name: "Java SE DK_8u_latest_with_JCE"
+              id: "jdk-8u161-oth-JPR"
+    - name: "Java SE JDK_8u_161"
       properties:
       - installSource:
           installers:
-          - zip:
-              subdir: "/home/jenkins/.jenkins/tools/hudson.model.JDK/Java_SE_DK_8u172_with_JCE/"
-              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/8u172JCE/jdk-8u172JCE.zip"
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-8u161-oth-JPR"
     - name: "openjdk-11_0_2"
       properties:
       - installSource:
@@ -261,36 +344,106 @@ tool:
           - zip:
               subdir: "jdk-11.0.2"
               url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/11.0.2/jdk-11.0.2-x64_bin.tar.gz"
-    - home: "/usr/lib/jvm/java-8-openjdk-amd64"
-      name: "java-8-openjdk"
-    - home: "/opt/JDK8"
-      name: "JDK8_latest"
-    - home: "/opt/JDK8"
-      name: "Java SE JDK_8u_161"
+    - name: "JDK6u45"
+      properties:
+      - installSource:
+          installers:
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-6u45-oth-JPR"
+    - name: "JDK7u45"
+      properties:
+      - installSource:
+          installers:
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-7u45-oth-JPR"
   maven:
     installations:
-    - name: "Maven3.6.1"
-      properties:
-      - installSource:
-          installers:
-          - maven:
-              id: "3.6.1"
-    - name: "Maven3.3.9"
-      properties:
-      - installSource:
-          installers:
-          - maven:
-              id: "3.3.9"
     - name: "Apache_Maven_3.5.3"
       properties:
       - installSource:
           installers:
           - maven:
               id: "3.5.3"
+    - name: "Apache_Maven_3.5.2"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.5.2"
+    - name: "Apache_Maven_3.3.9"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.3.9"
+    - name: "Apache_Maven_3.1.1"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.1.1"
   nodejs:
     installations:
-    - home: "/usr/bin/node"
-      name: "NodeJS-10.12.0"
+    - name: "nodejs-6.3.0"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "6.3.0"
+              npmPackages: "bower@~1.4.1 gulp@~3.9.0"
+              npmPackagesRefreshHours: 72
+    - name: "nodejs-4-0-0"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "4.0.0"
+              npmPackages: "bower@~1.4.1 gulp@~3.9.0"
+              npmPackagesRefreshHours: 72
+    - name: "nodejs-0-12-4"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "0.12.4"
+              npmPackages: "bower@~1.4.1 gulp@~3.9.0"
+              npmPackagesRefreshHours: 72
+    - name: "nodejs-6.7.0"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "6.7.0"
+              npmPackages: "bower@~1.4.1 gulp@~3.9.0"
+              npmPackagesRefreshHours: 72
+    - name: "nodejs-8.8.1"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "8.8.1"
+              npmPackages: "bower@~1.4.1 gulp@~3.9.0"
+              npmPackagesRefreshHours: 72
+    - name: "nodeJS 11.0.0"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "11.0.0"
+              npmPackagesRefreshHours: 72
+    - name: "NodeJS-10.12.0"
+      properties:
+      - installSource:
+          installers:
+          - nodeJSInstaller:
+              id: "10.12.0"
+              npmPackagesRefreshHours: 72
+  perforceToolInstallation:
+    installations:
+    - home: "/usr/bin/p4"
+      name: "p4linux"
   pipelineMaven:
     triggerDownstreamUponResultAborted: false
     triggerDownstreamUponResultFailure: false
