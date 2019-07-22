@@ -34,8 +34,8 @@ jenkins:
       acceptTasksWithoutOwningItem: false
   numExecutors: 0
   primaryView:
-    nested:
-      name: "Jenkins_landing"
+    all:
+      name: "all"
   projectNamingStrategy:
     pattern:
       forceExistingJobs: true
@@ -53,78 +53,83 @@ jenkins:
       url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
     - id: "core-mm-offline"
       url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
-tool:
-  ant:
-    installations:
-    - home: "/opt/ant"
-      name: "SFDC_Ant_v45.0_1.10.5"
-  git:
-    installations:
-    - home: "git"
-      name: "Default"
-  jdk:
-    installations:
-    - home: "/opt/jdk-11"
-      name: "OpenJDK-latest"
-    - name: "Java SE JDK_8u_latest"
-      properties:
-      - installSource:
-          installers:
-          - jdkInstaller:
-              acceptLicense: true
-              id: "jdk-8u172-oth-JPR"
-    - name: "Java SE DK_8u_latest_with_JCE"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              subdir: "/home/jenkins/.jenkins/tools/hudson.model.JDK/Java_SE_DK_8u172_with_JCE/"
-              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/8u172JCE/jdk-8u172JCE.zip"
-    - name: "openjdk-11_0_2"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              subdir: "jdk-11.0.2"
-              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/11.0.2/jdk-11.0.2-x64_bin.tar.gz"
-    - home: "/usr/lib/jvm/java-8-openjdk-amd64"
-      name: "java-8-openjdk"
-    - home: "/opt/JDK8"
-      name: "JDK8_latest"
-    - home: "/opt/JDK8"
-      name: "Java SE JDK_8u_161"
-  maven:
-    installations:
-    - name: "Maven3.6.1"
-      properties:
-      - installSource:
-          installers:
-          - maven:
-              id: "3.6.1"
-    - name: "Maven3.3.9"
-      properties:
-      - installSource:
-          installers:
-          - maven:
-              id: "3.3.9"
-    - name: "Apache_Maven_3.5.3"
-      properties:
-      - installSource:
-          installers:
-          - maven:
-              id: "3.5.3"
-  nodejs:
-    installations:
-    - home: "/usr/bin/node"
-      name: "NodeJS-10.12.0"
-  pipelineMaven:
-    triggerDownstreamUponResultAborted: false
-    triggerDownstreamUponResultFailure: false
-    triggerDownstreamUponResultNotBuilt: false
-    triggerDownstreamUponResultSuccess: true
-    triggerDownstreamUponResultUnstable: false
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  globalConfigurationImpl:
+    enabled: true
+  remotingCLI:
+    enabled: false
+  sSHD:
+    port: -1
 unclassified:
-  gitSCM:
-    createAccountBasedOnEmail: false
-    globalConfigEmail: "it-cd@salesforce.com"
-    globalConfigName: "githubtools_svc"
+  artifactManager:
+    artifactManagerFactories:
+    - "jSync"
+  badgePlugin:
+    disableFormatHTML: false
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildMonitorView:
+    permissionToCollectAnonymousUsageStatistics: true
+  buildStepOperation:
+    enabled: false
+  claimConfig:
+    blockAutoRefreshWhileClaiming: false
+    propagateToFollowingBuildsByDefault: false
+    sendEmails: false
+    sortUsersByFullName: false
+    stickyByDefault: true
+  contentFilters:
+    enabled: false
+  cxScanBuilder:
+    enableCertificateValidation: false
+    forcingVulnerabilityThresholdEnabled: false
+    hideResults: false
+    jobGlobalStatusOnThresholdViolation: FAILURE
+    lockVulnerabilitySettings: true
+    prohibitProjectCreation: false
+    scanTimeOutEnabled: false
+  devOpticsConfiguration:
+    completionStrategy: AUTOMATIC
+  diskUsageProjectActionFactory:
+    checkWorkspaceOnSlave: false
+    historyLength: 183
+    showGraph: false
+    timeoutWorkspace: 5
+  experimentalPlugins:
+    enabled: false
+  extendedEmailPublisher:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\r\n\r\nCheck\
+      \ console output at $BUILD_URL to view the results."
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: 0
+    precedenceBulk: false
+    useSsl: false
+    watchingEnabled: false
+  ghprbTrigger:
+    extensions:
+    - ghprbSimpleStatus:
+        addTestResults: false
+        showMatrixStatus: false
+  gitHubPluginConfig:
+    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt-test/github-webhook/"
