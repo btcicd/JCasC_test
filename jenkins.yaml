@@ -120,3 +120,144 @@ tool:
     triggerDownstreamUponResultNotBuilt: false
     triggerDownstreamUponResultSuccess: true
     triggerDownstreamUponResultUnstable: false
+jenkins:
+  agentProtocols:
+  - "Diagnostic-Ping"
+  - "JNLP4-connect"
+  - "OperationsCenter2"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: false
+  disableRememberMe: false
+  globalNodeProperties:
+  - owner:
+      onFirstLaunchFailure: false
+      onLaunchFailure: false
+      onOffline: false
+      onOnline: false
+      onTemporaryOfflineApplied: true
+      onTemporaryOfflineRemoved: true
+      owners: "it-cd@salesforce.com"
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
+  mode: EXCLUSIVE
+  myViewsTabBar: "standard"
+  nodeProperties:
+  - envVars:
+      env:
+      - key: "BACKUP_HOME"
+        value: "/opt/jenkins_backups"
+  - securityTokens:
+      acceptTasksWithoutOwningItem: false
+  numExecutors: 0
+  primaryView:
+    nested:
+      name: "Jenkins_landing"
+  projectNamingStrategy:
+    pattern:
+      forceExistingJobs: true
+      namePattern: "^[A-Za-z0-9_-]*$"
+  quietPeriod: 15
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm: "operationsCenter"
+  slaveAgentPort: 50007
+  systemMessage: " BT JENKINS HOME BT_TEST"
+  updateCenter:
+    sites:
+    - id: "cap-core-mm"
+      url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
+    - id: "core-mm-offline"
+      url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+tool:
+  ant:
+    installations:
+    - home: "/opt/ant"
+      name: "SFDC_Ant_v45.0_1.10.5"
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - home: "/opt/jdk-11"
+      name: "OpenJDK-latest"
+    - name: "Java SE JDK_8u_latest"
+      properties:
+      - installSource:
+          installers:
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-8u172-oth-JPR"
+    - name: "Java SE DK_8u_latest_with_JCE"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "/home/jenkins/.jenkins/tools/hudson.model.JDK/Java_SE_DK_8u172_with_JCE/"
+              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/8u172JCE/jdk-8u172JCE.zip"
+    - name: "openjdk-11_0_2"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "jdk-11.0.2"
+              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/11.0.2/jdk-11.0.2-x64_bin.tar.gz"
+    - home: "/usr/lib/jvm/java-8-openjdk-amd64"
+      name: "java-8-openjdk"
+    - home: "/opt/JDK8"
+      name: "JDK8_latest"
+    - home: "/opt/JDK8"
+      name: "Java SE JDK_8u_161"
+  maven:
+    installations:
+    - name: "Maven3.6.1"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.6.1"
+    - name: "Maven3.3.9"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.3.9"
+    - name: "Apache_Maven_3.5.3"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.5.3"
+  nodejs:
+    installations:
+    - home: "/usr/bin/node"
+      name: "NodeJS-10.12.0"
+  pipelineMaven:
+    triggerDownstreamUponResultAborted: false
+    triggerDownstreamUponResultFailure: false
+    triggerDownstreamUponResultNotBuilt: false
+    triggerDownstreamUponResultSuccess: true
+    triggerDownstreamUponResultUnstable: false
+unclassified:
+    ghprbTrigger:
+    extensions:
+    - ghprbSimpleStatus:
+        addTestResults: false
+        showMatrixStatus: false
+  gitHubConfiguration:
+    endpoints:
+    - apiUri: "https://git.soma.salesforce.com/api/v3"
+      name: "Git.soma API end point"
+  gitHubPluginConfig:
+    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt-test/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    globalConfigEmail: "it-cd@salesforce.com"
+    globalConfigName: "githubtools_svc"
