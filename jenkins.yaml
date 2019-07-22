@@ -124,7 +124,7 @@ tool:
     triggerDownstreamUponResultSuccess: true
     triggerDownstreamUponResultUnstable: false
 unclassified:
-    ghprbTrigger:
+  ghprbTrigger:
     extensions:
     - ghprbSimpleStatus:
         addTestResults: false
