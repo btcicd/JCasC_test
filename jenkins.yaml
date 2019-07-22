@@ -46,7 +46,7 @@ jenkins:
   scmCheckoutRetryCount: 0
   securityRealm: "operationsCenter"
   slaveAgentPort: 50007
-  systemMessage: " BT JENKINS HOME BT_TEST__1"
+  systemMessage: " BT JENKINS HOME BT_TEST__3"
   updateCenter:
     sites:
     - id: "cap-core-mm"
