@@ -34,8 +34,8 @@ jenkins:
       acceptTasksWithoutOwningItem: false
   numExecutors: 0
   primaryView:
-    nested:
-      name: "Jenkins_landing"
+    all:
+      name: "all"
   projectNamingStrategy:
     pattern:
       forceExistingJobs: true
@@ -46,13 +46,187 @@ jenkins:
   scmCheckoutRetryCount: 0
   securityRealm: "operationsCenter"
   slaveAgentPort: 50007
-  systemMessage: " BT JENKINS HOME BT_TEST"
+  systemMessage: " BT JENKINS HOME BT_TEST__3"
   updateCenter:
     sites:
     - id: "cap-core-mm"
       url: "https://jenkins-updates.cloudbees.com/update-center/envelope-core-mm/update-center.json"
     - id: "core-mm-offline"
       url: "file:/tmp/jenkins/war/WEB-INF/plugins/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  downloadSettings:
+    useBrowser: false
+  globalConfigurationImpl:
+    enabled: true
+  remotingCLI:
+    enabled: false
+  sSHD:
+    port: -1
+unclassified:
+  artifactManager:
+    artifactManagerFactories:
+    - "jSync"
+  badgePlugin:
+    disableFormatHTML: false
+  bitbucketEndpointConfiguration:
+    endpoints:
+    - bitbucketCloudEndpoint:
+        enableCache: false
+        manageHooks: false
+        repositoriesCacheDuration: 0
+        teamCacheDuration: 0
+  buildMonitorView:
+    permissionToCollectAnonymousUsageStatistics: true
+  buildStepOperation:
+    enabled: false
+  claimConfig:
+    blockAutoRefreshWhileClaiming: false
+    propagateToFollowingBuildsByDefault: false
+    sendEmails: false
+    sortUsersByFullName: false
+    stickyByDefault: true
+  contentFilters:
+    enabled: false
+  cxScanBuilder:
+    credentialsId: "itcd-checkmarx-sa"
+    enableCertificateValidation: false
+    filterPattern: |-
+      !**/_cvs/**/*, !**/.svn/**/*,   !**/.hg/**/*,   !**/.git/**/*,  !**/.bzr/**/*, !**/bin/**/*,
+      !**/obj/**/*,  !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr,     !**/*.iws,
+      !**/*.bak,     !**/*.tmp,       !**/*.aac,      !**/*.aif,      !**/*.iff,     !**/*.m3u, !**/*.mid, !**/*.mp3,
+      !**/*.mpa,     !**/*.ra,        !**/*.wav,      !**/*.wma,      !**/*.3g2,     !**/*.3gp, !**/*.asf, !**/*.asx,
+      !**/*.avi,     !**/*.flv,       !**/*.mov,      !**/*.mp4,      !**/*.mpg,     !**/*.rm,  !**/*.swf, !**/*.vob,
+      !**/*.wmv,     !**/*.bmp,       !**/*.gif,      !**/*.jpg,      !**/*.png,     !**/*.psd, !**/*.tif, !**/*.swf,
+      !**/*.jar,     !**/*.zip,       !**/*.rar,      !**/*.exe,      !**/*.dll,     !**/*.pdb, !**/*.7z,  !**/*.gz,
+      !**/*.tar.gz,  !**/*.tar,       !**/*.gz,       !**/*.ahtm,     !**/*.ahtml,   !**/*.fhtml, !**/*.hdm,
+      !**/*.hdml,    !**/*.hsql,      !**/*.ht,       !**/*.hta,      !**/*.htc,     !**/*.htd, !**/*.war, !**/*.ear,
+      !**/*.htmls,   !**/*.ihtml,     !**/*.mht,      !**/*.mhtm,     !**/*.mhtml,   !**/*.ssi, !**/*.stm,
+      !**/*.stml,    !**/*.ttml,      !**/*.txn,      !**/*.xhtm,     !**/*.xhtml,   !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*
+    forcingVulnerabilityThresholdEnabled: false
+    hideResults: false
+    jobGlobalStatusOnError: FAILURE
+    jobGlobalStatusOnThresholdViolation: FAILURE
+    lockVulnerabilitySettings: true
+    password: "{AQAAABAAAAAQpsIRoIMxX/lCJ4if1nrNMPE/PH/AdDm71shqinrNXT0=}"
+    prohibitProjectCreation: false
+    scanTimeOutEnabled: false
+    scanTimeoutDuration: 1
+    serverUrl: "https://scanner.internal.salesforce.com"
+  devOpticsConfiguration:
+    completionStrategy: AUTOMATIC
+  diskUsageProjectActionFactory:
+    checkWorkspaceOnSlave: false
+    historyLength: 183
+    showGraph: false
+    timeoutWorkspace: 5
+  experimentalPlugins:
+    enabled: false
+  extendedEmailPublisher:
+    adminRequiredForTemplateTesting: false
+    allowUnregisteredEnabled: false
+    charset: "UTF-8"
+    debugMode: false
+    defaultBody: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:\r\n\r\nCheck\
+      \ console output at $BUILD_URL to view the results."
+    defaultContentType: "text/plain"
+    defaultSubject: "$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!"
+    maxAttachmentSize: -1
+    maxAttachmentSizeMb: 0
+    precedenceBulk: false
+    useSsl: false
+    watchingEnabled: false
+  ghprbTrigger:
+    extensions:
+    - ghprbSimpleStatus:
+        addTestResults: false
+        showMatrixStatus: false
+  gitHubConfiguration:
+    endpoints:
+    - apiUri: "https://git.soma.salesforce.com/api/v3"
+      name: "Git.soma API end point"
+  gitHubPluginConfig:
+    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt-test/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    globalConfigEmail: "it-cd@salesforce.com"
+    globalConfigName: "githubtools_svc"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "cdsharedlibrary"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              credentialsId: "aws_githubtools_svc"
+              id: "ee89dd84-0c4d-4302-9d03-f68c19f86c64"
+              remote: "git@git.soma.salesforce.com:IT/cd-jenkins-pac-sharedlibrary.git"
+  globalSettings:
+    failOnCorrupt: false
+    noAuthors: false
+    quietMode: false
+  hAGlobalConfiguration:
+    bindPort: 0
+    diagnosticPort: 0
+    portRange: 0
+  hipChatNotifier:
+    cardProvider: "jenkins.plugins.hipchat.impl.DefaultCardProvider"
+    configVersion: "2.2.1"
+    sendAs: "Jenkins"
+    server: "api.hipchat.com"
+    v2Enabled: false
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://dev-jenkins.internal.salesforce.com/bt-test/"
+  logParser:
+    legacyFormatting: false
+  loginTheme:
+    head: "<center><font size=\"6\" <b>CloudBees Jenkins on AWS EKS</b></font></center>"
+    header: "<center><b>System is under ongoing Development. Expect regular interruptions</b></center>"
+    useDefaultTheme: true
+  mailer:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    charset: "UTF-8"
+    useSsl: false
+  mavenModuleSet:
+    localRepository: "default"
+  naginatorPublisher:
+    regexpTimeoutMs: 30000
+  operationsCenterRootAction:
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAKtWSi9KzCtRslJKNDM1NTcxSNZNTDS20DVJSTHRtTQyMtBNMbM0SDNNTDOytLRU\r\
+      \n0lHKTAGqNdN1CgGyS4tygJyMkpICK3395Kz8ZAihVAsAYt8pV1YAAAA=\r\n----- END CONNECTION\
+      \ DETAILS -----\n"
+  pollSCM:
+    pollingThreadCount: 10
+  schedulerPreference:
+    preferEvenload: false
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "https://dev-jenkins.internal.salesforce.com/bt-test/userContent/layout/sytle.css"
+  timestamperConfig:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+  unleashMavenBuildWrapper:
+    preselectAllowLocalReleaseArtifacts: true
+    preselectCommitBeforeTagging: false
+    scmMessagePrefix: "[unleash-maven-plugin]"
+    tagNamePattern: "@{project.version}"
+    useLogTimestamps: true
+  upstream:
+    globalUpstreamFilterStrategy: UseOldest
+  validatedMergeGlobalConfiguration:
+    preferHttp: false
+    pushFromMaster: false
 tool:
   ant:
     installations:
@@ -123,8 +297,3 @@ tool:
     triggerDownstreamUponResultNotBuilt: false
     triggerDownstreamUponResultSuccess: true
     triggerDownstreamUponResultUnstable: false
-unclassified:
-  gitSCM:
-    createAccountBasedOnEmail: false
-    globalConfigEmail: "it-cd@salesforce.com"
-    globalConfigName: "githubtools_svc"
