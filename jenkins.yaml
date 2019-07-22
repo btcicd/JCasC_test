@@ -228,50 +228,6 @@ unclassified:
     preferHttp: false
     pushFromMaster: false
 tool:
-  ant:
-    installations:
-    - name: "Apache_Ant_1.9.7"
-      properties:
-      - installSource:
-          installers:
-          - antFromApache:
-              id: "1.9.7"
-    - name: "SFDC_Ant_1.7.0"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              url: "http://nexusprod.internal.salesforce.com:8080/nexus/content/repositories/cd_infra/com/sforce/cd/sfdc_ant/1.7.0/sfdc_ant-1.7.0.tgz"
-    - name: "SFDC_Ant_1.8.3"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              url: "http://nexusprod.internal.salesforce.com:8080/nexus/content/repositories/cd_infra/com/sforce/cd/sfdc_ant/1.8.3/sfdc_ant-1.8.3.tgz"
-    - name: "Apache_Ant_1.7.0"
-      properties:
-      - installSource:
-          installers:
-          - antFromApache:
-              id: "1.9.7"
-    - name: "SFDC_v41.0_Ant_1.8.3"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              url: "http://nexusprod.internal.salesforce.com:8080/nexus/service/local/repositories/cd_infra/content/com/sforce/cd/sfdc_ant_410/1.8.3/sfdc_ant_410-1.8.3.gz"
-    - name: "SFDC_v41.0_Ant_1.7.0"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              url: "http://nexusprod.internal.salesforce.com:8080/nexus/content/repositories/cd_infra/com/sforce/cd/sfdc_ant_410/1.7.0/sfdc_ant_410-1.7.0.gz"
-    - name: "SFDC_v41.0_Ant_1.9.10"
-      properties:
-      - installSource:
-          installers:
-          - zip:
-              url: "http://nexusprod.internal.salesforce.com:8080/nexus/service/local/repositories/cd_infra/content/com/sforce/cd/sfdc_ant_410/1.9.10/sfdc_ant_410-1.9.10.gz"
   dockerTool:
     installations:
     - name: "docker"
