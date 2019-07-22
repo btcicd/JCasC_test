@@ -1,2 +1,2 @@
 jenkins: 
-  systemMessage: "<div id=\"main\">"+ "   <div>"+ "   Sample Html"+ "   </div>"+ "</div>"
+  systemMessage: '<div id="main">'+ '   <div>'+ '   Sample Html'+ '   </div>'+ '</div>'
