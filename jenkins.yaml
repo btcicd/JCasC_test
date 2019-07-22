@@ -1,2 +1,2 @@
 jenkins: 
-  systemMessage: " demo: configured automatically with JCasC plugin\n\n"
+  systemMessage: "<div id=\"main\">"+ "   <div>"+ "   Sample Html"+ "   </div>"+ "</div>"
