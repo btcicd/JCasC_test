@@ -124,17 +124,6 @@ tool:
     triggerDownstreamUponResultSuccess: true
     triggerDownstreamUponResultUnstable: false
 unclassified:
-  ghprbTrigger:
-    extensions:
-    - ghprbSimpleStatus:
-        addTestResults: false
-        showMatrixStatus: false
-  gitHubConfiguration:
-    endpoints:
-    - apiUri: "https://git.soma.salesforce.com/api/v3"
-      name: "Git.soma API end point"
-  gitHubPluginConfig:
-    hookUrl: "https://dev-jenkins.internal.salesforce.com/bt-test/github-webhook/"
   gitSCM:
     createAccountBasedOnEmail: false
     globalConfigEmail: "it-cd@salesforce.com"
