@@ -96,13 +96,30 @@ unclassified:
   contentFilters:
     enabled: false
   cxScanBuilder:
+    credentialsId: "itcd-checkmarx-sa"
     enableCertificateValidation: false
+    filterPattern: |-
+      !**/_cvs/**/*, !**/.svn/**/*,   !**/.hg/**/*,   !**/.git/**/*,  !**/.bzr/**/*, !**/bin/**/*,
+      !**/obj/**/*,  !**/backup/**/*, !**/.idea/**/*, !**/*.DS_Store, !**/*.ipr,     !**/*.iws,
+      !**/*.bak,     !**/*.tmp,       !**/*.aac,      !**/*.aif,      !**/*.iff,     !**/*.m3u, !**/*.mid, !**/*.mp3,
+      !**/*.mpa,     !**/*.ra,        !**/*.wav,      !**/*.wma,      !**/*.3g2,     !**/*.3gp, !**/*.asf, !**/*.asx,
+      !**/*.avi,     !**/*.flv,       !**/*.mov,      !**/*.mp4,      !**/*.mpg,     !**/*.rm,  !**/*.swf, !**/*.vob,
+      !**/*.wmv,     !**/*.bmp,       !**/*.gif,      !**/*.jpg,      !**/*.png,     !**/*.psd, !**/*.tif, !**/*.swf,
+      !**/*.jar,     !**/*.zip,       !**/*.rar,      !**/*.exe,      !**/*.dll,     !**/*.pdb, !**/*.7z,  !**/*.gz,
+      !**/*.tar.gz,  !**/*.tar,       !**/*.gz,       !**/*.ahtm,     !**/*.ahtml,   !**/*.fhtml, !**/*.hdm,
+      !**/*.hdml,    !**/*.hsql,      !**/*.ht,       !**/*.hta,      !**/*.htc,     !**/*.htd, !**/*.war, !**/*.ear,
+      !**/*.htmls,   !**/*.ihtml,     !**/*.mht,      !**/*.mhtm,     !**/*.mhtml,   !**/*.ssi, !**/*.stm,
+      !**/*.stml,    !**/*.ttml,      !**/*.txn,      !**/*.xhtm,     !**/*.xhtml,   !**/*.class, !**/*.iml, !Checkmarx/Reports/*.*
     forcingVulnerabilityThresholdEnabled: false
     hideResults: false
+    jobGlobalStatusOnError: FAILURE
     jobGlobalStatusOnThresholdViolation: FAILURE
     lockVulnerabilitySettings: true
+    password: "{AQAAABAAAAAQpsIRoIMxX/lCJ4if1nrNMPE/PH/AdDm71shqinrNXT0=}"
     prohibitProjectCreation: false
     scanTimeOutEnabled: false
+    scanTimeoutDuration: 1
+    serverUrl: "https://scanner.internal.salesforce.com"
   devOpticsConfiguration:
     completionStrategy: AUTOMATIC
   diskUsageProjectActionFactory:
@@ -137,3 +154,146 @@ unclassified:
       name: "Git.soma API end point"
   gitHubPluginConfig:
     hookUrl: "https://dev-jenkins.internal.salesforce.com/bt-test/github-webhook/"
+  gitSCM:
+    createAccountBasedOnEmail: false
+    globalConfigEmail: "it-cd@salesforce.com"
+    globalConfigName: "githubtools_svc"
+  globalLibraries:
+    libraries:
+    - defaultVersion: "master"
+      name: "cdsharedlibrary"
+      retriever:
+        modernSCM:
+          scm:
+            git:
+              credentialsId: "aws_githubtools_svc"
+              id: "ee89dd84-0c4d-4302-9d03-f68c19f86c64"
+              remote: "git@git.soma.salesforce.com:IT/cd-jenkins-pac-sharedlibrary.git"
+  globalSettings:
+    failOnCorrupt: false
+    noAuthors: false
+    quietMode: false
+  hAGlobalConfiguration:
+    bindPort: 0
+    diagnosticPort: 0
+    portRange: 0
+  hipChatNotifier:
+    cardProvider: "jenkins.plugins.hipchat.impl.DefaultCardProvider"
+    configVersion: "2.2.1"
+    sendAs: "Jenkins"
+    server: "api.hipchat.com"
+    v2Enabled: false
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "https://dev-jenkins.internal.salesforce.com/bt-test/"
+  logParser:
+    legacyFormatting: false
+  loginTheme:
+    head: "<center><font size=\"6\" <b>CloudBees Jenkins on AWS EKS</b></font></center>"
+    header: "<center><b>System is under ongoing Development. Expect regular interruptions</b></center>"
+    useDefaultTheme: true
+  mailer:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    charset: "UTF-8"
+    useSsl: false
+  mavenModuleSet:
+    localRepository: "default"
+  naginatorPublisher:
+    regexpTimeoutMs: 30000
+  operationsCenterRootAction:
+    connectionDetails: "----- BEGIN CONNECTION DETAILS -----\nH4sIAAAAAAAAAKtWSi9KzCtRslJKNDM1NTcxSNZNTDS20DVJSTHRtTQyMtBNMbM0SDNNTDOytLRU\r\
+      \n0lHKTAGqNdN1CgGyS4tygJyMkpICK3395Kz8ZAihVAsAYt8pV1YAAAA=\r\n----- END CONNECTION\
+      \ DETAILS -----\n"
+  pollSCM:
+    pollingThreadCount: 10
+  schedulerPreference:
+    preferEvenload: false
+  simple-theme-plugin:
+    elements:
+    - cssUrl:
+        url: "https://dev-jenkins.internal.salesforce.com/bt-test/userContent/layout/sytle.css"
+  timestamperConfig:
+    allPipelines: false
+    elapsedTimeFormat: "'<b>'HH:mm:ss.S'</b> '"
+    systemTimeFormat: "'<b>'HH:mm:ss'</b> '"
+  unleashMavenBuildWrapper:
+    preselectAllowLocalReleaseArtifacts: true
+    preselectCommitBeforeTagging: false
+    scmMessagePrefix: "[unleash-maven-plugin]"
+    tagNamePattern: "@{project.version}"
+    useLogTimestamps: true
+  upstream:
+    globalUpstreamFilterStrategy: UseOldest
+  validatedMergeGlobalConfiguration:
+    preferHttp: false
+    pushFromMaster: false
+tool:
+  ant:
+    installations:
+    - home: "/opt/ant"
+      name: "SFDC_Ant_v45.0_1.10.5"
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  jdk:
+    installations:
+    - home: "/opt/jdk-11"
+      name: "OpenJDK-latest"
+    - name: "Java SE JDK_8u_latest"
+      properties:
+      - installSource:
+          installers:
+          - jdkInstaller:
+              acceptLicense: true
+              id: "jdk-8u172-oth-JPR"
+    - name: "Java SE DK_8u_latest_with_JCE"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "/home/jenkins/.jenkins/tools/hudson.model.JDK/Java_SE_DK_8u172_with_JCE/"
+              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/8u172JCE/jdk-8u172JCE.zip"
+    - name: "openjdk-11_0_2"
+      properties:
+      - installSource:
+          installers:
+          - zip:
+              subdir: "jdk-11.0.2"
+              url: "http://nexusprod:8080/nexus/service/local/repositories/localjdk/content/fakepath/jdk/11.0.2/jdk-11.0.2-x64_bin.tar.gz"
+    - home: "/usr/lib/jvm/java-8-openjdk-amd64"
+      name: "java-8-openjdk"
+    - home: "/opt/JDK8"
+      name: "JDK8_latest"
+    - home: "/opt/JDK8"
+      name: "Java SE JDK_8u_161"
+  maven:
+    installations:
+    - name: "Maven3.6.1"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.6.1"
+    - name: "Maven3.3.9"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.3.9"
+    - name: "Apache_Maven_3.5.3"
+      properties:
+      - installSource:
+          installers:
+          - maven:
+              id: "3.5.3"
+  nodejs:
+    installations:
+    - home: "/usr/bin/node"
+      name: "NodeJS-10.12.0"
+  pipelineMaven:
+    triggerDownstreamUponResultAborted: false
+    triggerDownstreamUponResultFailure: false
+    triggerDownstreamUponResultNotBuilt: false
+    triggerDownstreamUponResultSuccess: true
+    triggerDownstreamUponResultUnstable: false
