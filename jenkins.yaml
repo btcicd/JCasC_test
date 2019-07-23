@@ -20,9 +20,6 @@ jenkins:
       onTemporaryOfflineApplied: true
       onTemporaryOfflineRemoved: true
       owners: "it-cd@salesforce.com"
-  markupFormatter:
-    rawHtml:
-      disableSyntaxHighlighting: false
   mode: EXCLUSIVE
   myViewsTabBar: "standard"
   nodeProperties:
